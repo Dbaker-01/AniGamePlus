@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  </head>
+
+<script type = "text/javascript">
+    const puppeteer = require('puppeteer');
+
+    function SaveGameName()
+    {
+        var itemName = document.getElementById('gname').value;
+        let itemToSearch = itemName;
+        let beginTag = "https://www.gamestop.com/search/?q=";
+        let endTag = "&type=Primary&sort=BestMatch_Desc&p=1";
+        let wholeTag =beginTag+itemToSearch+endTag;
+        let finish = wholeTag.split(" ").join('%20');
+        window.open(finish);
+    }
+
+    async function scrapeProduct(url)
+    {
+        const browser = await puppeteer.launch();
+        const page = await browser.newPage();
+        await page.goto(url);
+
+        const [el] = await page.$x('//*[@id="__next"]/main/section/article/div[1]/article[1]/a/section/div[1]');
+        const src = await el.getProperty('src');
+        const srcText = await src.jsonValue();
+
+        console.log({srcText});
+        browser.close();
+    }
+</script>
+
+<body>
+    <form>
+        <label for="gname">Name of item to search:</label>
+        <input type="text" id="gname" name="gname"><br><br>
+        <input type="submit" value="Submit" onclick="SaveGameName()">
+    </form> 
+</body>
