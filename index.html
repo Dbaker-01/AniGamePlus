@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>AniGame+</title>
+</head>
+
+
+<body>
+    <div class="content">
+        <div class="Title">
+            <h1>AniGame+</h1>
+        </div>
+ 
+
+        <div class="options">
+            <label for="sites">Choose a site to search </label>
+            <form id="web">
+
+            <!-- <select name="sites" id="sites" onchange="">
+                <option value="gamestop">Gamestop</option>
+                <option value="crunchyroll">Crunchyroll</option>
+                <option value="walmart">Walmart</option>
+            </select> -->
+            <button id="gamestop">Gamestop</button>
+            <button id="crunchyroll">Crunchyroll</button>
+            <button id="walmart">Walmart</button>
+            </form>
+            
+
+
+        </div>
+        
+        <div class="search">
+            <form action="">
+                <!--<input type="search" name="" id="searchBar">-->
+                <!--<button type="submit" id="searchButton" onclick="saveGameName()" >Search</button>-->
+                <input type="text" id="gname" name="gname"><br><br>
+                <input type="submit" value="Submit" id="sub" />
+            </form>
+            <!-- <input type="file" name="" id="uploadFile" accept=".csv" value="./WalmartSearchData.csv">
+            <button id="uploadconfirm">Upload</button> -->
+            <p id="p"></p>
+        </div>
+        <div class="results" id="re">
+
+        </div>
+    </div>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.1/papaparse.min.js"></script>
+    <script  src="./csvPrac.js"></script> -->
+   <script src="./agSearch.js">  </script>
+
+</body>
+</html>
